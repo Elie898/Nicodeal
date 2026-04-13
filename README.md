@@ -1,74 +1,63 @@
-# Nicodeal – Webbshop för snus & nikotinpåsar
+# Nicodeal – Webshop för snus & nikotinpåsar
 
-Nicodeal är en modern e-handelswebbplats byggd med:
+Nicodeal är en modern e-handelsplattform byggd med en headless-arkitektur där frontend och backend är separerade.
 
-- **Frontend:** Next.js (React + Tailwind CSS)
-- **Backend:** Strapi (Headless CMS)
-- **Databas:** SQLite
+## Teknologi
 
-Projektet innehåller funktioner som:
+- Frontend: Next.js (React + Tailwind CSS)
+- Backend: Strapi (Headless CMS)
+- Databas: SQLite
+
+---
+
+## Funktioner
 
 - Produktsida
 - Kategorier
 - Filtrering (märke & kategori)
 - Varukorg
-- Checkout (inkl. fake kortbetalning)
+- Checkout (inkl. simulerad kortbetalning)
 - Adminpanel (Strapi)
 - Orderhantering
 
 ---
 
-# Vad behövs för att starta projektet?
+## Krav
 
-Måste du installera följande:
+Se till att du har följande installerat:
 
-## Program
+### Node.js
 
-### 1. Node.js
-
-Används för att köra projektet.
-
-Ladda ner:
 https://nodejs.org
 
 ---
 
-### 2. SQLite
+## Viktigt att veta
 
-Projektet använder SQLite via Strapi.
-
-Du behöver inte installera SQLite manuellt – den skapas automatiskt när backend startas.
+- Projektet innehåller en backup av databasen
+- Databasen importeras via Strapi
+- Du måste skapa ett eget admin-konto första gången
 
 ---
 
-# Öppna projektet
+## Öppna projektet
 
 1. Öppna Visual Studio Code
-2. Klicka **File → Open Folder**
-3. Välj projektmappen
+2. Klicka på File → Open Folder
+3. Välj mappen Nicodeal
 
 ---
 
-# Installera projektet (viktigt!)
+## Installation
 
-## Steg 1 – Frontend
-
-Öppna terminal:
-
-**Terminal → New Terminal**
-
-Skriv:
+### Frontend
 
 ```bash
 cd frontend
 npm install
 ```
 
----
-
-## Steg 2 – Backend
-
-Öppna en **ny terminal**:
+### Backend
 
 ```bash
 cd backend
@@ -77,15 +66,27 @@ npm install
 
 ---
 
-# Starta projektet
+## Importera databas
 
-Projektet kräver **två terminaler**.
+Kör i backend-mappen:
+
+```bash
+npx strapi import --file backup.tar.gz.enc
+```
+
+När du blir ombedd att ange lösenord:
+
+```
+elie
+```
 
 ---
 
-## Starta backend (Strapi)
+## Starta projektet
 
-I terminalen:
+Projektet kräver två terminaler.
+
+### Starta backend (Strapi)
 
 ```bash
 cd backend
@@ -95,15 +96,15 @@ npm run develop
 Öppna:
 http://localhost:1337/admin
 
+Skapa ett admin-konto.
+
 ---
 
-## Starta frontend
-
-Öppna en **ny terminal**:
+### Starta frontend
 
 ```bash
 cd frontend
- npm run dev
+npm run dev
 ```
 
 Öppna:
@@ -111,72 +112,45 @@ http://localhost:3000
 
 ---
 
-# Inloggning
+## Inloggning
 
-## 1. Strapi Admin
+### Strapi Admin
 
-Används för att hantera:
+Skapa eget konto vid första start
 
-- produkter
-- kategorier
-- ordrar
+### Admin i webbshoppen
 
-Öppna:
-http://localhost:1337/admin
-
-Test konto:
-
-- Email: `elie_008@hotmail.com`
-- Lösenord: `Nicodeal123`
-
----
-
-## 2. Admin i webbshoppen
-
-Öppna:
+URL:
 http://localhost:3000/admin/login
 
-Test konto:
+Testkonto:
 
-- Användarnamn: `admin`
-- Lösenord: `1234`
-
----
-
-# Tekniker
-
-- Next.js
-- React
-- Tailwind CSS
-- Strapi
-- SQLite
+Användarnamn: admin  
+Lösenord: 1234
 
 ---
 
-# Struktur
+## Struktur
 
 ```
-frontend/   → webbshop
+frontend/   → Webbshop (Next.js)
 backend/    → Strapi + databas
 ```
 
 ---
 
-# Utvecklare
+## Utvecklare
 
 Elie Antar
 
 ---
 
-# Sammanfattning
-
-För att köra projektet:
+## Sammanfattning
 
 1. Installera Node.js
-2. Ladda ner projektet från GitHub
-3. Installera frontend + backend
+2. Installera frontend och backend
+3. Importera databasen
 4. Starta backend
-5. Starta frontend
-6. Öppna webben
-
----
+5. Skapa admin-konto
+6. Starta frontend
+7. Öppna webbplatsen
